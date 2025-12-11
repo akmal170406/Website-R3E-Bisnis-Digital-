@@ -1,0 +1,146 @@
+body {
+    /* Menghilangkan margin default browser */
+    margin: 0;
+    /* Menggunakan font dasar yang mudah dibaca */
+    font-family: Arial, sans-serif;
+    /* Latar belakang dasar */
+    background-color: #f0f0f0; 
+}
+
+.container {
+    /* Memastikan konten mengisi lebar */
+    width: 100%;
+    /* Flexbox untuk menata elemen secara vertikal (navbar, konten, footer) */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan container setidaknya setinggi viewport */
+}
+
+/* --- 2. NAVBAR STYLING --- */
+.container-navbar {
+    background-color: #333; /* Warna gelap untuk navbar */
+    padding: 10px 0;
+    width: 100%; /* Memastikan lebar penuh */
+}
+
+.ul-navbar {
+    list-style-type: none; /* Menghilangkan bullet point */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Menata menu di tengah */
+    justify-content: center;
+}
+
+.li-navbar {
+    margin: 0 20px;
+}
+
+.a-navbar {
+    color: white; /* Warna teks putih */
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    padding: 8px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.a-navbar:hover {
+    background-color: #555; /* Efek hover gelap */
+}
+
+/* --- 3. FOOTER STYLING --- */
+.container-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    /* Menggunakan margin-top auto agar footer didorong ke bawah */
+    margin-top: auto; 
+    width: 100%;
+}
+
+.h1-footer {
+    font-size: 1.2em;
+    margin: 0;
+    font-weight: normal;
+    background-color: red;
+}
+
+/* Mengatur HERO BACKGROUND agar menutupi seluruh tampilan (viewport) */
+.hero-background {
+    /* GANTI 'foto_kelompok.jpg' dengan nama file Anda yang benar */
+    background-image: url('kelasan\ w\ bu\ putri.jpg'); 
+    
+    /* Memastikan gambar menutupi seluruh area tanpa terdistorsi */
+    background-size: cover; 
+    
+    /* Memastikan gambar tetap di tengah saat viewport diubah ukurannya */
+    background-position: center; 
+    
+    /* Memastikan gambar tidak terulang */
+    background-repeat: no-repeat; 
+
+    /* Membuat Hero Background menempati seluruh layar */
+    height: 100vh; 
+    width: 100%;
+    
+    /* Menggunakan Flexbox untuk menata elemen navbar, konten, dan footer secara vertikal */
+    display: flex;
+    flex-direction: column; 
+    
+    /* Memberikan sedikit kegelapan (overlay) agar teks lebih mudah dibaca */
+    position: relative;
+    z-index: 1; /* Agar overlay berfungsi */
+}
+
+/* Membuat lapisan gelap (overlay) di atas gambar */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3); /* Hitam dengan transparansi 30% */
+    z-index: 2; /* Di atas gambar, di bawah teks */
+}
+
+/* Styling untuk Konten Teks di Tengah */
+.hero-content {
+    /* Posisi konten di tengah layar */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Menentukan lebar overlay teks */
+    width: 80%;
+    max-width: 600px;
+    
+    /* Styling kotak teks */
+    background: rgba(255, 255, 255, 0.8); /* Latar belakang putih semi-transparan */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    
+    /* Memastikan teks berada di atas overlay gelap */
+    z-index: 3; 
+}
+
+.hero-content h1 {
+    margin: 0;
+    color: #333;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Penyesuaian agar Navbar dan Footer tetap terlihat di atas background */
+.container-navbar, .container-footer {
+    z-index: 4; /* Posisikan di atas semua overlay */
+    background: rgba(0, 0, 0, 0.6); /* Agar navbar tetap terlihat jelas */
+}
+
+/* Mengubah warna teks footer agar tetap terlihat di atas background */
+.container-footer h1 {
+    color: white;
+}
